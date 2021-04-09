@@ -14,7 +14,7 @@ jobs:
       - name: Get version from tag
         id: tag_name
         run: |
-          echo ::set-output name=current_version::${GITHUB_REF#refs/tags/v} | cut -c 2-
+          echo ::set-output name=${current_version::${GITHUB_REF#refs/tags/v} | cut -c 2-}
         shell: bash
       - name: Checkout code
         uses: actions/checkout@v2
