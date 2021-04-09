@@ -14,7 +14,7 @@ jobs:
       - name: Get version from tag
         id: tag_name
         run: |
-          echo ::set-output name=current_version::v${GITHUB_REF#refs/tags/v | cut -c 2-}
+          echo ::set-output name=current_version::${GITHUB_REF#refs/tags/v | tr p v}
         shell: bash
       - name: Checkout code
         uses: actions/checkout@v2
@@ -23,7 +23,7 @@ jobs:
         uses: mindsers/changelog-reader-action@v2
         with:
           validation_depth: 10
-          version: ${{ steps.tag_name.outputs.current_version }}
+          version: ${ ${{ steps.tag_name.outputs.current_version }} | tr p v }
           path: ./CHANGELOG.md
       - name: Create Release
         id: create_release
