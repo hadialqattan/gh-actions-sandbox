@@ -9,7 +9,7 @@ rm -fr *
 
 unset GLOBIGNORE
 
-git push -f
+git add . && git commit -m "CLEAN UP!" && git push -f
 
 # Remove both local & remote tags.
 git fetch
