@@ -10,8 +10,6 @@ rm -fr *
 unset GLOBIGNORE
 
 # Remove both local & remote tags.
-git tag -d $(git tag -l | head -n 100)
-
 git fetch
 
 git push origin --delete $(git tag -l)
