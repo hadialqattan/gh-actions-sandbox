@@ -9,6 +9,8 @@ rm -fr *
 
 unset GLOBIGNORE
 
+git push -f
+
 # Remove both local & remote tags.
 git fetch
 
