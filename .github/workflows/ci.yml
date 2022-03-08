@@ -17,6 +17,6 @@ jobs:
         id: relies-on
         with:
           owner: "hadialqattan"
-          repo: "pycln"
-          workflow_name: "CI"
+          repository: "pycln"
+          workflow: "CI"
           event: "push"
