@@ -1,5 +1,4 @@
 from dataclasses import dataclass
-from enum import Enum
 import os
 import sys
 from types import MethodType
@@ -193,16 +192,16 @@ def str2bool (val: str) -> bool:
     if val in {'n', 'no', 'f', 'false', 'off', '0'}:
         return False
     else:
-        return True # valid only in `relies_on` use case.
+        return True # valid only in `relies_on.py` use case.
 
 
 def main() -> None:
     filter = Filter(
-        owner=os.getenv("INPUT_OWNER"),
-        repo=os.getenv("INPUT_REPOSITORY"),
-        workflow_name=os.getenv("INPUT_WORKFLOW"),
-        branch=os.getenv("INPUT_BRANCH", ""),
-        event=os.getenv("INPUT_EVENT", ""),
+        owner=os.getenv("INPUT_OWNER").lower(),
+        repo=os.getenv("INPUT_REPOSITORY").lower(),
+        workflow_name=os.getenv("INPUT_WORKFLOW").lower(),
+        branch=os.getenv("INPUT_BRANCH", "").lower(),
+        event=os.getenv("INPUT_EVENT", "").lower(),
         exclude_pull_requests=str2bool(os.getenv("INPUT_EXCLUDE_PULL_REQUESTS", "true")),
     )
     gh_client = GithubClient(filter)
