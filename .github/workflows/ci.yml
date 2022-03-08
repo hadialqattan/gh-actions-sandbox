@@ -1,6 +1,9 @@
 name: CI
 
 on:
+  push:
+    branches:
+      - master
   workflow_dispatch:
 
 jobs:
@@ -17,6 +20,6 @@ jobs:
         id: relies-on
         with:
           owner: "hadialqattan"
-          repository: "pycln"
-          workflow: "CI"
+          repository: "simple-api"
+          workflow: "SimpleAPI(CI/CD)"
           event: "push"
