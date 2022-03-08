@@ -195,7 +195,7 @@ def str2bool (val: str) -> bool:
         return True # valid only in `relies_on.py` use case.
 
 
-def main() -> None:
+def main() -> int:
     filter = Filter(
         owner=os.getenv("INPUT_OWNER").lower(),
         repo=os.getenv("INPUT_REPOSITORY").lower(),
@@ -208,7 +208,8 @@ def main() -> None:
     runs: List[dict] = gh_client.get_filtered_runs()
     exit_code: int = get_exit_code(runs)
     output_conclusion(str(filter), exit_code)
+    return exit_code
 
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())
