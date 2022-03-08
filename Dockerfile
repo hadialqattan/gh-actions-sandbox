@@ -1,6 +1,6 @@
 FROM python:3-slim AS builder
-ADD relies_on.py /app
-ADD action.yml /app
+ADD relies_on.py /app/relies_on.py
+ADD action.yml /app/action.yml
 WORKDIR /app
 
 # We are installing a dependency here directly into our app source dir
