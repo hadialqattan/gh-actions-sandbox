@@ -8,6 +8,7 @@ RUN pip install --target=/app requests
 # https://github.com/GoogleContainerTools/distroless
 FROM gcr.io/distroless/python3-debian10
 COPY --from=builder /app /app
+COPY ./relies_on.py /app/relies_on.py
 WORKDIR /app
 ENV PYTHONPATH /app
-CMD ["/cmd/relies_on.py"]
+CMD ["/app/relies_on.py"]
