@@ -1,0 +1,22 @@
+name: CI
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    name: TEST
+    steps:
+      # To use this repository's private action,
+      # you must check out the repository
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: relies-on action
+        uses: ./ # Uses an action in the root directory
+        id: relies-on
+        with:
+          owner: "hadialqattan"
+          repo: "pycln"
+          workflow_name: "CI"
+          event: "push"
