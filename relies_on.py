@@ -260,7 +260,7 @@ def str2bool(val: str) -> bool:
 
 def main() -> int:  # pylint: disable=missing-function-docstring
     owner, repo = os.getenv("GITHUB_REPOSITORY", "").split("/")
-    print(f'repo={os.getenv("INPUT_REPOSITORY")}')
+    print(f'repo={os.getenv("INPUT_REPOSITORY", "DEFAULT")}')
     filter_ = Filter(
         owner=os.getenv("INPUT_OWNER", owner),
         repo=os.getenv("INPUT_REPOSITORY", repo),
