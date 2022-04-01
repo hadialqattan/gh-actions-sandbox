@@ -1,22 +1,9 @@
-########[CI PIPELINE FLOW]########
-# Run pre-commit:                #
-#   | failure ~> stop.           #
-#   | pass:                      #
-#       Run tests:               #
-#          | failure ~> stop.    #
-#          | pass:               #
-#             Upload coverage.   #
-##################################
-# Requiered Github secrets:      #
-#   - CODECOV_TOKEN              #
-##################################
-
 name: CI
 
 on:
   push:
     branches:
-      - main
+      - master
   pull_request:
   workflow_dispatch:
 
