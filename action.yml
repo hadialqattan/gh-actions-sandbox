@@ -5,11 +5,9 @@ inputs:
   owner:
     description: "..."
     required: false
-    default: null
   repository:
     description: "..."
     required: false
-    default: null
   workflow:
     description: "..."
     required: true
