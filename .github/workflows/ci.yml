@@ -1,0 +1,36 @@
+########[CI PIPELINE FLOW]########
+# Run pre-commit:                #
+#   | failure ~> stop.           #
+#   | pass:                      #
+#       Run tests:               #
+#          | failure ~> stop.    #
+#          | pass:               #
+#             Upload coverage.   #
+##################################
+# Requiered Github secrets:      #
+#   - CODECOV_TOKEN              #
+##################################
+
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+
+  test:
+    name: Test
+    needs: pre-commit
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: My first step
+        uses: ./
+        with:
+          - owner: hadialqattan
+          - repository: pycln
+          - workflow: CI
