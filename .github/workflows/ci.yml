@@ -24,10 +24,10 @@ jobs:
 
   test:
     name: Test
-    needs: pre-commit
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v2
 
       - name: My first step
         uses: ./
