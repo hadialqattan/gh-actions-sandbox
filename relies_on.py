@@ -259,7 +259,9 @@ def str2bool(val: str) -> bool:
 
 
 def main() -> int:  # pylint: disable=missing-function-docstring
-    print(f'github={os.getenv("GITHUB_ENV", "")}')
+    github_env_file = os.getenv("GITHUB_ENV", "")
+    with open(github_env_file, "r") as gh_env:
+        print(gh_env.read())
     filter_ = Filter(
         owner=os.getenv("INPUT_OWNER", "").lower(),
         repo=os.getenv("INPUT_REPOSITORY", "").lower(),
