@@ -19,6 +19,4 @@ jobs:
       - name: My first step
         uses: ./
         with:
-          owner: hadialqattan
-          repository: pycln
           workflow: CI
