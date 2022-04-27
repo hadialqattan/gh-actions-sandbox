@@ -20,7 +20,7 @@ jobs:
     name: Check the CI Workflow's Status
     runs-on: ubuntu-latest
     steps:
-      - uses: hadialqattan/relies-on@v1
+      - uses: hadialqattan/relies-on@v1.0.0
         with:
           workflow: CI
           
